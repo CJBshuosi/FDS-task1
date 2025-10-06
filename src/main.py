@@ -12,9 +12,9 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from vector_clock import compute_vector_clock
-from graph import build_causal_edges, create_graph, reduce_transitive_edges
-from utils import load_json, save_json, export_graph_to_dot
+from .vector_clock import compute_vector_clock
+from .graph import build_causal_edges, create_graph, reduce_transitive_edges
+from .utils import load_json, save_json, export_graph_to_dot
 
 
 def parse_arguments() -> argparse.Namespace:
