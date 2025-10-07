@@ -54,13 +54,6 @@ cd src
 python main.py
 ```
 
-
-
-```bash
-python -m src.main -v
-```
-
-
 ## Output
 
 The program generates the following files:
