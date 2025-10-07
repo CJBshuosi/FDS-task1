@@ -7,29 +7,26 @@ A Python package for computing vector clocks and analyzing causal relationships 
 - **Vector Clock Computation**: Automatically computes vector clocks for events in a distributed system
 - **Causal Graph Generation**: Builds complete causal dependency graphs from vector clocks
 - **Transitive Reduction**: Reduces graphs by removing redundant transitive edges
-- **DOT Export**: Exports graphs in DOT format for visualization with Graphviz
 
 ## Project Structure
 
 ```
 FDS-task1/
 ├── src/                      # Source code
-│   ├── vector_clock/         # Vector clock computation module
+│   ├── task1_1/         # Vector clock computation module
 │   │   ├── __init__.py
-│   │   └── compute.py
-│   ├── graph/                # Graph building and analysis module
+│   │   └── Compute_vector_clocks.py
+│   ├── task1_2/                # Graph building
 │   │   ├── __init__.py
-│   │   ├── builder.py
-│   │   └── reduction.py
-│   ├── utils/                # Utility functions
+│   │   └── Build_G.py
+│   ├── task1_3/                # Reduction module
 │   │   ├── __init__.py
-│   │   └── io.py
+│   │   └── reduction_redundant_edges.py
 │   ├── __init__.py
 │   └── main.py               # Main entry point
 ├── data_vector/              # Data directory
 │   └── FDS_data.json         # Input data
 ├── requirements.txt          # Python dependencies
-├── setup.py                  # Package setup configuration
 └── README.md                 # This file
 ```
 
@@ -46,78 +43,23 @@ cd FDS-task1
 pip install -r requirements.txt
 ```
 
-3. (Optional) Install in development mode:
-```bash
-pip install -e .
-```
-
 ## Usage
 
 ### Basic Usage
 
-Run the analysis with default settings:
-
-```bash
-python -m src.main
-```
-
-Or run directly from the src directory:
+run directly from the src directory:
 
 ```bash
 cd src
 python main.py
 ```
 
-### Command Line Options
 
-```bash
-python -m src.main --help
-```
 
-Options:
-- `-i, --input`: Input JSON file path (default: `data_vector/FDS_data.json`)
-- `-o, --output-dir`: Output directory for results (default: `data_vector`)
-- `--no-full-graph`: Skip generating the full causal graph
-- `--no-reduced-graph`: Skip generating the reduced causal graph
-- `-v, --verbose`: Enable verbose output
-
-### Examples
-
-Run with verbose output:
 ```bash
 python -m src.main -v
 ```
 
-Specify custom input and output:
-```bash
-python -m src.main -i path/to/data.json -o path/to/output
-```
-
-Skip full graph generation:
-```bash
-python -m src.main --no-full-graph
-```
-
-## Input Format
-
-The input JSON file should follow this format:
-
-```json
-{
-  "branch1": {
-    "event1": [],
-    "event2": ["event1"]
-  },
-  "branch2": {
-    "event3": ["event1"]
-  }
-}
-```
-
-Where:
-- Keys at the first level represent branches (e.g., processes or nodes)
-- Keys at the second level represent event names
-- Values are lists of parent events (events that happened before)
 
 ## Output
 
@@ -135,8 +77,6 @@ You can visualize the DOT files using Graphviz:
 dot -Tpng data_vector/full_edges.dot -o full_graph.png
 dot -Tpng data_vector/reduced_edges.dot -o reduced_graph.png
 ```
-
-Or use online tools like [Graphviz Online](https://dreampuf.github.io/GraphvizOnline/).
 
 ## Algorithm Details
 
@@ -165,10 +105,6 @@ The transitive reduction algorithm removes redundant edges:
 - networkx: Graph data structures and algorithms
 - pydot: Graph export to DOT format
 
-## License
-
-This project is part of FDS coursework.
-
 ## Authors
 
-FDS Team
+BYRA 
