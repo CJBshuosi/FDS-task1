@@ -1,8 +1,8 @@
-from task1_1.Compute_vector_clocks import compute_vector_clock
-from task1_2.Build_G import build_edges, create_graph
-from task1_3.reduction_redundant_edges import reduction
-import json
+from task1_1 import *
+from task1_2 import *
+from task1_3 import *
 from networkx.drawing.nx_pydot import write_dot
+import json
 
 
 def main():

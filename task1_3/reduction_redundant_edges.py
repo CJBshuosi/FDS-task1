@@ -1,6 +1,4 @@
 
-
-
 def reduction(edges):
     nodes = list(edges.keys())
 
